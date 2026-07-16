@@ -40,16 +40,33 @@ PR을 올리기 전에 두 명령 모두 통과해야 합니다.
 사용자에게 보이는 변경을 만들 때는 `CHANGELOG.md`(Keep a Changelog 형식)도 함께
 갱신하세요.
 
-## 템플릿에 스킬·커맨드·룰·서브에이전트 추가하기
+## 템플릿에 스킬·커맨드·룰·훅·서브에이전트 추가하기
 
-다른 프로젝트에서 가져와 적용하는 경우, 해당하는
-`src/agent_scaffold/source-structure/.claude/{skills,commands,rules,agents}/`
-디렉터리 아래에 추가하세요. 해당 디렉터리의 `README.md`에 설명된 포맷을 따르고
-(이 파일 자체는 대상 프로젝트로 복사되지 않습니다 — `_template.py` 참고), 이
-프로젝트의 `README.md` Credits 섹션에 `inspired by` 또는 `based on` 태그와 출처
-링크로 함께 기록하세요.
+템플릿 페이로드는 두 부분으로 나뉩니다: `src/agent_scaffold/source-structure/common/`
+(프로필 무관 — `CLAUDE.md`, 빈 `.claude/*` 카테고리 디렉터리, 각 카테고리의 포맷
+설명 문서 `README.md`. 이 파일 자체는 대상 프로젝트로 복사되지 않습니다 —
+`_template.py` 참고)와
+`src/agent_scaffold/source-structure/profiles/{dev,research}/` (실제
+스킬/커맨드/룰/에이전트/훅 콘텐츠, 어떤 프로필용인지에 따라 나뉨).
+
+새 콘텐츠는 해당하는
+`profiles/{dev,research}/.claude/{skills,commands,rules,agents,hooks}/`
+디렉터리 아래에, `common/.claude/<카테고리>/README.md`에 설명된 포맷을 따라
+추가하세요. 훅은 예외입니다: 스크립트만 있어서는 아무 동작도 하지 않고, 해당
+프로필의 `.claude/settings.json`에도 함께 등록해야 합니다 (두 부분 구조는
+`common/.claude/hooks/README.md` 참고).
+
+다른 프로젝트에서 가져와 적용하는 경우, 이 프로젝트의 `README.md` Credits
+섹션에 `inspired by` 또는 `based on` 태그와 출처 링크로 함께 기록하세요. 먼저
+라이선스를 확인하세요 — 카피레프트나 라이선스 미표기 콘텐츠를 채택하기 전에
+해당 카테고리 PR/이슈의 라이선스 검토 노트를 참고하세요.
 
 ## 브랜치 전략
 
-초기 단계의 작은 변경은 `main`에 바로 반영될 수 있습니다. 프로젝트가 커지면
-`main`에 직접 푸시하는 대신 기능 브랜치 + PR을 통해 기여해야 합니다.
+모든 작업은 기능 브랜치 + PR을 통해서만 진행합니다 — `main`에 직접 푸시하지
+않습니다. 논리적으로 하나의 작업 단위마다 브랜치 하나를 사용하세요 (예: 구조
+변경 하나, 또는 `feat/skills-from-public-repos`처럼 카테고리 하나의 콘텐츠
+전체). 서로 다른 카테고리를 한 브랜치에 섞지 마세요 — 한 브랜치가 라이선스
+검토로 막히더라도 다른 브랜치가 거기에 발이 묶이지 않아야 하기 때문입니다.
+로컬에서 `uv run pytest`와 `uv run ruff check .`가 모두 통과한 뒤에 PR을
+여세요.

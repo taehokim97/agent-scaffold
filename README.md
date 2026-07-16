@@ -2,24 +2,24 @@
 
 **🇺🇸 English | [🇰🇷 한국어](docs/ko/README.md)**
 
-A CLI that scaffolds Claude Code's `CLAUDE.md` + `.claude/{skills,commands,rules,agents}/`
-layout into any project.
-It's intentionally an empty scaffold — just the directories Claude Code
-looks for, with nothing opinionated inside.
+A CLI that scaffolds Claude Code's `CLAUDE.md` + `.claude/{skills,commands,rules,agents,hooks}/`
+layout into any project, picking a **profile** (`dev` or `research`) for
+which skills/commands/rules/agents/hooks get populated.
 
 ## Install & run
 
 No install step — run it straight from source with [uv](https://docs.astral.sh/uv/):
 
 ```bash
-uvx --from git+https://github.com/taehokim97/agent-scaffold agent-scaffold
+uvx --from git+https://github.com/taehokim97/agent-scaffold agent-scaffold --profile dev
 ```
 
-This copies the scaffold into the current directory. Pass a path to target
-somewhere else, and `--force` to overwrite files that already exist:
+`--profile` is required — choose `dev` or `research`. This copies the
+scaffold into the current directory. Pass a path to target somewhere else,
+and `--force` to overwrite files that already exist:
 
 ```bash
-uvx --from git+https://github.com/taehokim97/agent-scaffold agent-scaffold path/to/project --force
+uvx --from git+https://github.com/taehokim97/agent-scaffold agent-scaffold path/to/project --profile research --force
 ```
 
 ## What gets created
@@ -28,11 +28,17 @@ uvx --from git+https://github.com/taehokim97/agent-scaffold agent-scaffold path/
 .
 ├── CLAUDE.md          # skeleton: overview, build/test, code style, notes for agents
 └── .claude/
-    ├── skills/        # empty — skill format documented in this repo's source
-    ├── commands/      # empty — slash command format documented in this repo's source
-    ├── rules/         # empty — project rule format documented in this repo's source
-    └── agents/        # empty — subagent format documented in this repo's source
+    ├── skills/        # skill format documented in this repo's source
+    ├── commands/      # slash command format documented in this repo's source
+    ├── rules/         # project rule format documented in this repo's source
+    ├── agents/        # subagent format documented in this repo's source
+    └── hooks/         # hook scripts; registered separately in .claude/settings.json
 ```
+
+`CLAUDE.md` and the empty directory layout are the same for every profile.
+Which concrete skills/commands/rules/agents/hooks land inside `.claude/`
+depends on the `--profile` you pick — `dev` and `research` ship different
+content (see Credits for what's included and where it came from).
 
 The format docs that live alongside each directory in this repo
 (`README.md`) aren't copied into your project.
@@ -47,14 +53,16 @@ output.
 
 ## Credits
 
-The `CLAUDE.md` + `.claude/{skills,commands,rules,agents}/` layout mirrors
-[Claude Code](https://docs.claude.com/en/docs/claude-code)'s own
-conventions for project memory, skills, slash commands, rules, and
-subagents — this scaffold just automates setting them up.
+The `CLAUDE.md` + `.claude/{skills,commands,rules,agents,hooks}/` layout
+mirrors [Claude Code](https://docs.claude.com/en/docs/claude-code)'s own
+conventions for project memory, skills, slash commands, rules, subagents,
+and hooks — this scaffold just automates setting them up.
 
-This scaffold ships no concrete skills or commands yet. When any are added,
-they'll be credited here with an `inspired by` or `based on` tag and a link
-to the source.
+This scaffold ships no concrete skills, commands, rules, agents, or hooks
+yet — the `dev`/`research` profiles are currently empty aside from the
+directory layout. When content is added, it'll be credited here with an
+`inspired by` or `based on` tag and a link to the source (or "provided by:
+user" for content given directly rather than adapted from a public repo).
 
 ## Contributing
 

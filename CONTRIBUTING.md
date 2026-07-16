@@ -39,17 +39,33 @@ This project follows [Semantic Versioning](https://semver.org/):
 Update `CHANGELOG.md` (Keep a Changelog format) alongside any user-visible
 change.
 
-## Adding a skill, command, rule, or subagent to the template
+## Adding a skill, command, rule, hook, or subagent to the template
 
-If you're adapting one from another project, add it under the matching
-`src/agent_scaffold/source-structure/.claude/{skills,commands,rules,agents}/`
-directory, following the format described in that directory's `README.md`
-(that file itself is never copied to target projects — see
-`_template.py`), and credit the source in this project's `README.md` under
-Credits with an `inspired by` or `based on` tag and a link.
+The template payload is split into `src/agent_scaffold/source-structure/common/`
+(profile-agnostic: `CLAUDE.md`, the empty `.claude/*` category dirs, and
+each category's format-doc `README.md`, which is never copied to target
+projects — see `_template.py`) and
+`src/agent_scaffold/source-structure/profiles/{dev,research}/` (the actual
+skills/commands/rules/agents/hooks content, split by which profile it's
+meant for).
+
+Add new content under the matching
+`profiles/{dev,research}/.claude/{skills,commands,rules,agents,hooks}/`
+directory, following the format described in `common/.claude/<category>/README.md`.
+Hooks are the odd one out: a script alone does nothing, it must also be
+registered in that profile's `.claude/settings.json` (see
+`common/.claude/hooks/README.md` for the two-part shape).
+
+If you're adapting content from another project, credit the source in this
+project's `README.md` under Credits with an `inspired by` or `based on` tag
+and a link. Check the license first — see the license-review notes in the
+relevant category PR/issue before adopting copyleft or unlicensed content.
 
 ## Branching
 
-Small early-stage changes may land directly on `main`. As the project
-grows, contributions should go through a feature branch + PR instead of
-pushing to `main` directly.
+All work goes through a feature branch + PR — no direct pushes to `main`.
+Use one branch per logical unit of work (e.g. a structural change, or all
+the content for one category like `feat/skills-from-public-repos`); don't
+mix unrelated categories in the same branch, since one branch getting stuck
+on license review shouldn't block the others from merging. Open the PR once
+`uv run pytest` and `uv run ruff check .` both pass locally.

@@ -8,11 +8,12 @@ from pathlib import Path
 import pytest
 
 EXPECTED_WHEEL_MEMBERS = [
-    "agent_scaffold/source-structure/CLAUDE.md",
-    "agent_scaffold/source-structure/.claude/skills/README.md",
-    "agent_scaffold/source-structure/.claude/commands/README.md",
-    "agent_scaffold/source-structure/.claude/rules/README.md",
-    "agent_scaffold/source-structure/.claude/agents/README.md",
+    "agent_scaffold/source-structure/common/CLAUDE.md",
+    "agent_scaffold/source-structure/common/.claude/skills/README.md",
+    "agent_scaffold/source-structure/common/.claude/commands/README.md",
+    "agent_scaffold/source-structure/common/.claude/rules/README.md",
+    "agent_scaffold/source-structure/common/.claude/agents/README.md",
+    "agent_scaffold/source-structure/common/.claude/hooks/README.md",
 ]
 
 
@@ -20,12 +21,13 @@ def test_template_discoverable_via_importlib_resources(
     tmp_path: Path, monkeypatch: pytest.MonkeyPatch
 ) -> None:
     monkeypatch.chdir(tmp_path)
-    root = resources.files("agent_scaffold") / "source-structure"
+    root = resources.files("agent_scaffold") / "source-structure" / "common"
     assert (root / "CLAUDE.md").is_file()
     assert (root / ".claude" / "skills" / "README.md").is_file()
     assert (root / ".claude" / "commands" / "README.md").is_file()
     assert (root / ".claude" / "rules" / "README.md").is_file()
     assert (root / ".claude" / "agents" / "README.md").is_file()
+    assert (root / ".claude" / "hooks" / "README.md").is_file()
 
 
 def test_wheel_actually_contains_template_files(tmp_path: Path) -> None:

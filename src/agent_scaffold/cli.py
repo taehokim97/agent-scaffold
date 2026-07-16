@@ -10,10 +10,16 @@ from agent_scaffold._template import _copy_template
 def _build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
         prog="agent-scaffold",
-        description="Scaffold CLAUDE.md + .claude/{skills,commands,rules,agents} into a project.",
+        description="Scaffold CLAUDE.md + .claude/{skills,commands,rules,agents,hooks} into a project.",
     )
     parser.add_argument(
         "target", nargs="?", default=".", help="Target directory (default: current directory)."
+    )
+    parser.add_argument(
+        "--profile",
+        required=True,
+        choices=["dev", "research"],
+        help="Which content profile to scaffold.",
     )
     parser.add_argument("--force", action="store_true", help="Overwrite existing files.")
     return parser
@@ -24,7 +30,7 @@ def main(argv: list[str] | None = None) -> int:
     args = parser.parse_args(argv)
     target = Path(args.target)
     target.mkdir(parents=True, exist_ok=True)
-    for line in _copy_template(target, force=args.force):
+    for line in _copy_template(target, force=args.force, profile=args.profile):
         print(line)
     return 0
 
