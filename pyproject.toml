@@ -1,0 +1,36 @@
+[build-system]
+requires = [
+    "hatchling"
+]
+build-backend = "hatchling.build"
+
+[project]
+name = "agent-scaffold"
+version = "0.1.0"
+description = "Scaffold CLAUDE.md + .claude/skills + .claude/commands into any project."
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.11"
+authors = [
+    { name = "taehokim97", email = "sinabero3271@gmail.com" }
+]
+dependencies = []
+
+[project.urls]
+Homepage = "https://github.com/taehokim97/agent-scaffold"
+Repository = "https://github.com/taehokim97/agent-scaffold"
+Changelog = "https://github.com/taehokim97/agent-scaffold/blob/main/CHANGELOG.md"
+
+[project.scripts]
+agent-scaffold = "agent_scaffold.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = [
+    "src/agent_scaffold"
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=9.1.1",
+    "ruff>=0.15.21",
+]
