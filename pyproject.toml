@@ -7,7 +7,7 @@ build-backend = "hatchling.build"
 [project]
 name = "agent-scaffold"
 version = "0.1.0"
-description = "Scaffold CLAUDE.md + .claude/skills + .claude/commands into any project."
+description = "Scaffold CLAUDE.md + .claude/{skills,commands,rules,agents,hooks} into any project."
 readme = "README.md"
 license = "MIT"
 requires-python = ">=3.11"

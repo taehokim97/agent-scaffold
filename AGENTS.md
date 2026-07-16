@@ -3,21 +3,27 @@
 ## Project Overview
 
 `agent-scaffold` is a small CLI that scaffolds Claude Code's
-`CLAUDE.md` + `.claude/{skills,commands,rules,agents}/` layout into any
-project. It's meant to be run directly from its git repository with
-`uvx --from git+...` — no installation step for end users.
+`CLAUDE.md` + `.claude/{skills,commands,rules,agents,hooks}/` layout into any
+project, for a chosen `--profile` (`dev` or `research`). It's meant to be
+run directly from its git repository with `uvx --from git+...` — no
+installation step for end users.
 
 Two things share this repo and are easy to confuse:
 
 - `src/agent_scaffold/{__init__,cli,_template}.py` — the tool itself (the
   CLI you're editing).
-- `src/agent_scaffold/source-structure/` — the **template payload**
-  (`CLAUDE.md` + `.claude/{skills,commands,rules,agents}/`). These are the
-  files `agent-scaffold` copies into a target project. Editing them
-  changes what end users receive, not how this repo behaves. Each `.claude/`
-  subdirectory's `README.md` documents that directory's file format for
+- `src/agent_scaffold/source-structure/` — the **template payload**, split
+  into `common/` (profile-agnostic: `CLAUDE.md`, the empty `.claude/*`
+  category dirs, each category's `README.md` format doc) and
+  `profiles/{dev,research}/` (the actual skills/commands/rules/agents/hooks
+  content, split by which profile it targets). These are the files
+  `agent-scaffold` copies into a target project — `common/` always, then the
+  selected profile's subtree layered on top. Editing them changes what end
+  users receive, not how this repo behaves. Each `.claude/` subdirectory's
+  `README.md` under `common/` documents that directory's file format for
   contributors — `_template.py` deliberately excludes `README.md` from what
-  gets copied, so the target project's directories start genuinely empty.
+  gets copied, so the target project's directories start genuinely empty
+  until profile content fills them in.
 
 ## Build & Test
 
@@ -45,5 +51,6 @@ skip it when touching `pyproject.toml` packaging settings.
 - See [CONTRIBUTING.md](CONTRIBUTING.md) for commit conventions and semver
   policy.
 - `src/agent_scaffold/_template.py` copies everything under
-  `source-structure/` as-is. New files added there are picked up
-  automatically — no changes needed in `_template.py`.
+  `source-structure/common/` and then `source-structure/profiles/<profile>/`
+  as-is. New files added there are picked up automatically — no changes
+  needed in `_template.py`.

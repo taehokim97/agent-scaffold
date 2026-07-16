@@ -7,6 +7,21 @@
 문서 형식은 [Keep a Changelog](https://keepachangelog.com/ko/1.1.0/)를 따르며,
 이 프로젝트는 [Semantic Versioning](https://semver.org/lang/ko/spec/v2.0.0.html)을 준수합니다.
 
+## [Unreleased]
+
+### Changed
+
+- **Breaking:** `--profile {dev,research}` CLI 플래그가 필수가 되었습니다.
+  템플릿 페이로드가 `source-structure/common/`(프로필 무관, 항상 복사)과
+  `source-structure/profiles/{dev,research}/`(프로필별
+  스킬/커맨드/룰/에이전트/훅, `--profile`에 따라 위에 덧씌워 복사)로
+  재구성되었습니다.
+
+### Added
+
+- 스캐폴드 레이아웃에 `.claude/hooks/` 추가 (현재는 비어 있음 — 훅 스크립트는
+  `.claude/settings.json`을 통해 별도로 등록됩니다).
+
 ## [0.1.0] - 2026-07-16
 
 ### Added
