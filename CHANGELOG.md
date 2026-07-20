@@ -26,6 +26,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   best-effort formats the file just edited with the project's own
   formatter, and `session-brief` (`SessionStart`) surfaces in-progress
   specs and unread research findings at the start of a session.
+- `second-opinion` subagent: an isolated-context, review-only reviewer
+  for work outside full confidence, with confidence-filtered findings
+  (zero findings is a valid result).
 
 ## [0.1.0] - 2026-07-16
 
