@@ -3,23 +3,21 @@
 **🇺🇸 English | [🇰🇷 한국어](docs/ko/README.md)**
 
 A CLI that scaffolds Claude Code's `CLAUDE.md` + `.claude/{skills,commands,rules,agents,hooks}/`
-layout into any project, picking a **profile** (`dev` or `research`) for
-which skills/commands/rules/agents/hooks get populated.
+layout into any project.
 
 ## Install & run
 
 No install step — run it straight from source with [uv](https://docs.astral.sh/uv/):
 
 ```bash
-uvx --from git+https://github.com/taehokim97/agent-scaffold agent-scaffold --profile dev
+uvx --from git+https://github.com/taehokim97/agent-scaffold agent-scaffold
 ```
 
-`--profile` is required — choose `dev` or `research`. This copies the
-scaffold into the current directory. Pass a path to target somewhere else,
-and `--force` to overwrite files that already exist:
+This copies the scaffold into the current directory. Pass a path to target
+somewhere else, and `--force` to overwrite files that already exist:
 
 ```bash
-uvx --from git+https://github.com/taehokim97/agent-scaffold agent-scaffold path/to/project --profile research --force
+uvx --from git+https://github.com/taehokim97/agent-scaffold agent-scaffold path/to/project --force
 ```
 
 ## What gets created
@@ -35,10 +33,8 @@ uvx --from git+https://github.com/taehokim97/agent-scaffold agent-scaffold path/
     └── hooks/         # hook scripts; registered separately in .claude/settings.json
 ```
 
-`CLAUDE.md` and the empty directory layout are the same for every profile.
-Which concrete skills/commands/rules/agents/hooks land inside `.claude/`
-depends on the `--profile` you pick — `dev` and `research` ship different
-content (see Credits for what's included and where it came from).
+Every run copies the same payload (see Credits for what's included and
+where it came from).
 
 The format docs that live alongside each directory in this repo
 (`README.md`) aren't copied into your project.
@@ -59,8 +55,8 @@ conventions for project memory, skills, slash commands, rules, subagents,
 and hooks — this scaffold just automates setting them up.
 
 This scaffold ships no concrete skills, commands, rules, agents, or hooks
-yet — the `dev`/`research` profiles are currently empty aside from the
-directory layout. When content is added, it'll be credited here with an
+yet — `.claude/` is currently empty aside from the directory layout. When
+content is added, it'll be credited here with an
 `inspired by` or `based on` tag and a link to the source (or "provided by:
 user" for content given directly rather than adapted from a public repo).
 

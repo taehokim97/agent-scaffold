@@ -15,12 +15,6 @@ def _build_parser() -> argparse.ArgumentParser:
     parser.add_argument(
         "target", nargs="?", default=".", help="Target directory (default: current directory)."
     )
-    parser.add_argument(
-        "--profile",
-        required=True,
-        choices=["dev", "research"],
-        help="Which content profile to scaffold.",
-    )
     parser.add_argument("--force", action="store_true", help="Overwrite existing files.")
     return parser
 
@@ -30,7 +24,7 @@ def main(argv: list[str] | None = None) -> int:
     args = parser.parse_args(argv)
     target = Path(args.target)
     target.mkdir(parents=True, exist_ok=True)
-    for line in _copy_template(target, force=args.force, profile=args.profile):
+    for line in _copy_template(target, force=args.force):
         print(line)
     return 0
 

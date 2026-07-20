@@ -41,20 +41,18 @@ change.
 
 ## Adding a skill, command, rule, hook, or subagent to the template
 
-The template payload is split into `src/agent_scaffold/source-structure/common/`
-(profile-agnostic: `CLAUDE.md`, the empty `.claude/*` category dirs, and
-each category's format-doc `README.md`, which is never copied to target
-projects — see `_template.py`) and
-`src/agent_scaffold/source-structure/profiles/{dev,research}/` (the actual
-skills/commands/rules/agents/hooks content, split by which profile it's
-meant for).
+The template payload lives entirely under
+`src/agent_scaffold/source-structure/common/`: `CLAUDE.md`, and the
+`.claude/{skills,commands,rules,agents,hooks}/` category dirs. Each
+category dir also holds a format-doc `README.md`, which is never copied to
+target projects — see `_template.py`.
 
 Add new content under the matching
-`profiles/{dev,research}/.claude/{skills,commands,rules,agents,hooks}/`
-directory, following the format described in `common/.claude/<category>/README.md`.
-Hooks are the odd one out: a script alone does nothing, it must also be
-registered in that profile's `.claude/settings.json` (see
-`common/.claude/hooks/README.md` for the two-part shape).
+`common/.claude/{skills,commands,rules,agents,hooks}/` directory, following
+the format described in that category's `README.md`. Hooks are the odd one
+out: a script alone does nothing, it must also be registered in
+`common/.claude/settings.json` (see `common/.claude/hooks/README.md` for
+the two-part shape).
 
 If you're adapting content from another project, credit the source in this
 project's `README.md` under Credits with an `inspired by` or `based on` tag

@@ -9,14 +9,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-### Changed
-
-- **Breaking:** `--profile {dev,research}` is now a required CLI flag.
-  Template payload restructured into `source-structure/common/`
-  (profile-agnostic files, copied always) and
-  `source-structure/profiles/{dev,research}/` (profile-specific
-  skills/commands/rules/agents/hooks, copied on top based on `--profile`).
-
 ### Added
 
 - `.claude/hooks/` to the scaffolded layout (empty for now — hook scripts

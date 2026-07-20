@@ -3,23 +3,21 @@
 **🇰🇷 한국어** | [🇺🇸 English](../../README.md)
 
 Claude Code의 `CLAUDE.md` + `.claude/{skills,commands,rules,agents,hooks}/` 레이아웃을
-현재 프로젝트에 추가하는 CLI입니다. **프로필**(`dev` 또는 `research`)을 선택해서
-어떤 스킬/커맨드/룰/에이전트/훅이 채워질지 결정합니다.
+현재 프로젝트에 추가하는 CLI입니다.
 
 ## 설치 & 실행
 
 별도 설치 과정 없이, [uv](https://docs.astral.sh/uv/)로 소스에서 바로 실행합니다:
 
 ```bash
-uvx --from git+https://github.com/taehokim97/agent-scaffold agent-scaffold --profile dev
+uvx --from git+https://github.com/taehokim97/agent-scaffold agent-scaffold
 ```
 
-`--profile`은 필수입니다 — `dev` 또는 `research` 중 선택하세요. 현재 디렉터리에
-스캐폴드를 복사합니다. 다른 경로를 지정하거나, 이미 있는 파일을 덮어쓰려면
-`--force`를 사용하세요:
+현재 디렉터리에 스캐폴드를 복사합니다. 다른 경로를 지정하거나, 이미 있는
+파일을 덮어쓰려면 `--force`를 사용하세요:
 
 ```bash
-uvx --from git+https://github.com/taehokim97/agent-scaffold agent-scaffold path/to/project --profile research --force
+uvx --from git+https://github.com/taehokim97/agent-scaffold agent-scaffold path/to/project --force
 ```
 
 ## 생성되는 결과물
@@ -35,10 +33,8 @@ uvx --from git+https://github.com/taehokim97/agent-scaffold agent-scaffold path/
     └── hooks/         # 훅 스크립트 — .claude/settings.json에 별도로 등록됨
 ```
 
-`CLAUDE.md`와 빈 디렉터리 레이아웃 자체는 모든 프로필에서 동일합니다. `.claude/`
-안에 실제로 어떤 스킬/커맨드/룰/에이전트/훅이 들어가는지는 선택한 `--profile`에
-따라 다릅니다 — `dev`와 `research`는 서로 다른 콘텐츠를 담습니다 (무엇이 포함되고
-어디서 왔는지는 Credits 참고).
+실행할 때마다 동일한 내용이 복사됩니다 (무엇이 포함되고 어디서 왔는지는
+Credits 참고).
 
 이 리포에서 각 디렉터리에 있는 포맷 설명 문서(`README.md`)는 프로젝트로 복사되지 않습니다.
 
@@ -57,8 +53,8 @@ uvx --from git+https://github.com/taehokim97/agent-scaffold agent-scaffold path/
 그 설정을 자동화해줄 뿐입니다.
 
 이 스캐폴드는 아직 구체적인 스킬·커맨드·룰·에이전트·훅을 담고 있지 않습니다 —
-`dev`/`research` 프로필은 현재 디렉터리 구조만 있고 비어 있습니다. 콘텐츠가
-추가되면 여기에 `inspired by` 또는 `based on` 태그와 출처 링크로 함께 기록하겠습니다
+`.claude/`는 현재 디렉터리 구조만 있고 비어 있습니다. 콘텐츠가 추가되면 여기에
+`inspired by` 또는 `based on` 태그와 출처 링크로 함께 기록하겠습니다
 (직접 제공받아 채택한 콘텐츠는 "제공: 사용자"로 표기).
 
 ## Contributing (기여하기)
