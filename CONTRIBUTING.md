@@ -59,6 +59,17 @@ project's `README.md` under Credits with an `inspired by` or `based on` tag
 and a link. Check the license first — see the license-review notes in the
 relevant category PR/issue before adopting copyleft or unlicensed content.
 
+### Bilingual content (optional)
+
+If you write a skill/command/rule/agent/hook in Korean as well as English,
+the English version under `source-structure/` is the one the CLI ships —
+keep it self-contained, with no links back into this repo (it gets copied
+into other people's projects, where those links would be dead). Put the
+Korean translation at the mirrored path under `docs/ko/<category>/<name>/...`;
+it's for repo readers only and is never copied to target projects. Add a
+one-line note at the top of the translation linking back to the shipped
+English source.
+
 ## Branching
 
 All work goes through a feature branch + PR — no direct pushes to `main`.

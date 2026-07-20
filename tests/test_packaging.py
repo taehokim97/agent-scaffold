@@ -10,6 +10,7 @@ import pytest
 EXPECTED_WHEEL_MEMBERS = [
     "agent_scaffold/source-structure/common/CLAUDE.md",
     "agent_scaffold/source-structure/common/.claude/skills/README.md",
+    "agent_scaffold/source-structure/common/.claude/skills/reproducible-debugging/SKILL.md",
     "agent_scaffold/source-structure/common/.claude/commands/README.md",
     "agent_scaffold/source-structure/common/.claude/rules/README.md",
     "agent_scaffold/source-structure/common/.claude/agents/README.md",

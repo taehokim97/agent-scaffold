@@ -6,8 +6,16 @@ import pytest
 
 from agent_scaffold.cli import main
 
-EXPECTED_EMPTY_DIRS = [
+EXPECTED_CATEGORY_DIRS = [
     ".claude/skills",
+    ".claude/commands",
+    ".claude/rules",
+    ".claude/agents",
+    ".claude/hooks",
+]
+
+# Categories with no shipped content yet, so they should stay empty.
+EXPECTED_EMPTY_DIRS = [
     ".claude/commands",
     ".claude/rules",
     ".claude/agents",
@@ -19,7 +27,7 @@ def test_creates_expected_files(tmp_path: Path) -> None:
     rc = main([str(tmp_path)])
     assert rc == 0
     assert (tmp_path / "CLAUDE.md").is_file()
-    for rel in EXPECTED_EMPTY_DIRS:
+    for rel in EXPECTED_CATEGORY_DIRS:
         assert (tmp_path / rel).is_dir()
 
 
@@ -27,6 +35,15 @@ def test_does_not_copy_readme(tmp_path: Path) -> None:
     main([str(tmp_path)])
     for rel in EXPECTED_EMPTY_DIRS:
         assert list((tmp_path / rel).iterdir()) == []
+
+
+def test_ships_reproducible_debugging_skill(tmp_path: Path) -> None:
+    main([str(tmp_path)])
+    skill = tmp_path / ".claude/skills/reproducible-debugging/SKILL.md"
+    assert skill.is_file()
+    assert "reproducible-debugging" in skill.read_text()
+    # The category's format-doc README.md must not be copied alongside it.
+    assert not (tmp_path / ".claude/skills/README.md").exists()
 
 
 def test_skips_existing_without_force(
@@ -50,5 +67,5 @@ def test_defaults_target_to_cwd(tmp_path: Path, monkeypatch: pytest.MonkeyPatch)
     rc = main([])
     assert rc == 0
     assert (tmp_path / "CLAUDE.md").is_file()
-    for rel in EXPECTED_EMPTY_DIRS:
+    for rel in EXPECTED_CATEGORY_DIRS:
         assert (tmp_path / rel).is_dir()

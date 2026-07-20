@@ -13,6 +13,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - `.claude/hooks/` to the scaffolded layout (empty for now — hook scripts
   are registered separately via `.claude/settings.json`).
+- `reproducible-debugging` skill: the template's first concrete skill,
+  enforcing a reproduce → root-cause → fix → verify loop before any bug
+  fix. See README Credits for sources.
 
 ## [0.1.0] - 2026-07-16
 
