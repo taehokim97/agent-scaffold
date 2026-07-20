@@ -11,8 +11,6 @@
 
 ### Added
 
-- 스캐폴드 레이아웃에 `.claude/hooks/` 추가 (현재는 비어 있음 — 훅 스크립트는
-  `.claude/settings.json`을 통해 별도로 등록됩니다).
 - `reproducible-debugging` 스킬 추가: 템플릿의 첫 번째 실제 스킬로, 버그를
   고치기 전에 재현 → 원인 → 수정 → 검증 루프를 강제합니다. 출처는 README
   Credits 참고.
@@ -24,6 +22,10 @@
 - `research-brief` 스킬 추가: 열려 있는 조사 질문을 출처와 중단 조건이
   있는 스코프 있는 브리프로 구조화한 뒤 긴 세션이나 무인 세션에
   넘깁니다.
+- `.claude/settings.json`과 훅 2개 추가: `auto-format`(`PostToolUse`)은
+  방금 수정한 파일을 프로젝트의 기존 포맷터로 best-effort 포맷하고,
+  `session-brief`(`SessionStart`)는 세션 시작 시 진행 중인 스펙과 아직
+  안 읽은 조사 결과를 알려줍니다.
 
 ## [0.1.0] - 2026-07-16
 

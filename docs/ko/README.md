@@ -78,6 +78,18 @@ Credits 참고).
   조사했던 다른 리서치 스킬 저장소에서 봤던, 권한을 우회하는 무인 자동화
   패턴은 의도적으로 배제했습니다. 한글 번역:
   [`docs/ko/skills/research-brief/`](skills/research-brief/SKILL.md).
+- **`auto-format`** 훅 (`PostToolUse`) —
+  [karanb192/claude-code-hooks](https://github.com/karanb192/claude-code-hooks)의
+  format-code.js 자동 포맷 훅에서 영감을 받았습니다. 처음부터 다시
+  썼습니다. 프로젝트에 이미 설정된 포맷터(ruff, prettier, rustfmt,
+  gofmt)를 감지해 방금 수정한 파일에만 실행하는 best-effort 방식이며,
+  해당하는 게 없으면 조용히 아무것도 하지 않습니다.
+- **`session-brief`** 훅 (`SessionStart`) —
+  [mvanhorn/last30days-skill](https://github.com/mvanhorn/last30days-skill)의
+  SessionStart 설정 점검 배너에서 영감을 받았습니다. 처음부터 다시
+  썼습니다. 진행 중인 `specs/<slug>/progress.md`와 아직 안 읽은
+  `research/<slug>/findings.md`를 세션 시작 시 알려주며, 보여줄 게 없으면
+  조용합니다.
 
 ## Contributing (기여하기)
 

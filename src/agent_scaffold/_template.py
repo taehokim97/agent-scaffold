@@ -36,6 +36,10 @@ def _copy_template(target_dir: Path, force: bool) -> list[str]:
             return
         dst.parent.mkdir(parents=True, exist_ok=True)
         dst.write_bytes(src.read_bytes())
+        if dst.parent.name == "hooks":
+            # Wheel/zip packaging doesn't reliably preserve the executable
+            # bit, and settings.json invokes these scripts by path.
+            dst.chmod(dst.stat().st_mode | 0o111)
         messages.append(f"write {dst.relative_to(target_dir)}")
 
     common_root = package_root / "common"
