@@ -17,7 +17,6 @@ EXPECTED_CATEGORY_DIRS = [
 
 # Categories with no shipped content yet, so they should stay empty.
 EXPECTED_EMPTY_DIRS = [
-    ".claude/commands",
     ".claude/rules",
 ]
 
@@ -80,6 +79,15 @@ def test_ships_second_opinion_subagent(tmp_path: Path) -> None:
     assert "second-opinion" in agent.read_text()
     # The category's format-doc README.md must not be copied alongside it.
     assert not (tmp_path / ".claude/agents/README.md").exists()
+
+
+def test_ships_bootstrap_command(tmp_path: Path) -> None:
+    main([str(tmp_path)])
+    command = tmp_path / ".claude/commands/bootstrap.md"
+    assert command.is_file()
+    assert "spec-driven-development" in command.read_text()
+    # The category's format-doc README.md must not be copied alongside it.
+    assert not (tmp_path / ".claude/commands/README.md").exists()
 
 
 def test_skips_existing_without_force(

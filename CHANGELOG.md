@@ -29,6 +29,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `second-opinion` subagent: an isolated-context, review-only reviewer
   for work outside full confidence, with confidence-filtered findings
   (zero findings is a valid result).
+- `bootstrap` command: the template's first command, an interview that
+  fills in `CLAUDE.md` (overview, build/test, code style, and a new Git
+  Workflow section for branch/commit conventions) and hands off into the
+  `spec-driven-development` skill for the project's first goal.
 
 ## [0.1.0] - 2026-07-16
 
