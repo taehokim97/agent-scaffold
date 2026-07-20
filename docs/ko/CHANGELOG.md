@@ -9,14 +9,6 @@
 
 ## [Unreleased]
 
-### Changed
-
-- **Breaking:** `--profile {dev,research}` CLI 플래그가 필수가 되었습니다.
-  템플릿 페이로드가 `source-structure/common/`(프로필 무관, 항상 복사)과
-  `source-structure/profiles/{dev,research}/`(프로필별
-  스킬/커맨드/룰/에이전트/훅, `--profile`에 따라 위에 덧씌워 복사)로
-  재구성되었습니다.
-
 ### Added
 
 - 스캐폴드 레이아웃에 `.claude/hooks/` 추가 (현재는 비어 있음 — 훅 스크립트는

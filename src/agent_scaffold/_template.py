@@ -4,14 +4,13 @@ import importlib.resources as resources
 from importlib.resources.abc import Traversable
 from pathlib import Path
 
-# `common/` (profile-agnostic: CLAUDE.md, .gitignore, empty .claude/*
-# category dirs) is always copied first, then `profiles/<profile>/`
-# (profile-specific skills/commands/rules/agents/hooks content) is
-# layered on top of it into the target project's root.
+# `common/` holds everything the CLI ships: CLAUDE.md and the
+# .claude/{skills,commands,rules,agents,hooks}/ content, copied as-is into
+# the target project's root.
 _TEMPLATE_ROOT = "source-structure"
 
 
-def _copy_template(target_dir: Path, force: bool, profile: str) -> list[str]:
+def _copy_template(target_dir: Path, force: bool) -> list[str]:
     """Copy the packaged scaffold template into target_dir.
 
     Returns one human-readable status line per file.
@@ -42,10 +41,5 @@ def _copy_template(target_dir: Path, force: bool, profile: str) -> list[str]:
     common_root = package_root / "common"
     for child in common_root.iterdir():
         _copy(child, target_dir / child.name)
-
-    profile_root = package_root / "profiles" / profile
-    if profile_root.is_dir():
-        for child in profile_root.iterdir():
-            _copy(child, target_dir / child.name)
 
     return messages
