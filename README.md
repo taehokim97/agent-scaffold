@@ -54,11 +54,13 @@ mirrors [Claude Code](https://docs.claude.com/en/docs/claude-code)'s own
 conventions for project memory, skills, slash commands, rules, subagents,
 and hooks — this scaffold just automates setting them up.
 
-This scaffold ships no concrete skills, commands, rules, agents, or hooks
-yet — `.claude/` is currently empty aside from the directory layout. When
-content is added, it'll be credited here with an
-`inspired by` or `based on` tag and a link to the source (or "provided by:
-user" for content given directly rather than adapted from a public repo).
+- **`reproducible-debugging`** skill — inspired by the reproduction-gated
+  debugging loop in [mattpocock/skills](https://github.com/mattpocock/skills)'s
+  `diagnosing-bugs`, and the rationalization-check table technique used
+  across [obra/superpowers](https://github.com/obra/superpowers)'s skills.
+  Rewritten from scratch, not copied. A Korean translation lives at
+  [`docs/ko/skills/reproducible-debugging/`](docs/ko/skills/reproducible-debugging/SKILL.md)
+  (reference only — the CLI ships the English version above).
 
 ## Contributing
 

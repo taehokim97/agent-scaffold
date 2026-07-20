@@ -52,10 +52,13 @@ Credits 참고).
 스킬, 슬래시 커맨드, 룰, 서브에이전트, 훅 컨벤션을 그대로 따릅니다 — 이 스캐폴드는
 그 설정을 자동화해줄 뿐입니다.
 
-이 스캐폴드는 아직 구체적인 스킬·커맨드·룰·에이전트·훅을 담고 있지 않습니다 —
-`.claude/`는 현재 디렉터리 구조만 있고 비어 있습니다. 콘텐츠가 추가되면 여기에
-`inspired by` 또는 `based on` 태그와 출처 링크로 함께 기록하겠습니다
-(직접 제공받아 채택한 콘텐츠는 "제공: 사용자"로 표기).
+- **`reproducible-debugging`** 스킬 — [mattpocock/skills](https://github.com/mattpocock/skills)의
+  `diagnosing-bugs`가 쓰는 재현 게이트 디버깅 루프, 그리고
+  [obra/superpowers](https://github.com/obra/superpowers)가 여러 스킬에서 쓰는
+  자기합리화 체크 표 기법에서 영감을 받았습니다. 파일을 그대로 복사하지 않고
+  처음부터 다시 썼습니다. 한글 번역은
+  [`docs/ko/skills/reproducible-debugging/`](skills/reproducible-debugging/SKILL.md)에
+  있습니다(참고용 — CLI가 실제로 설치하는 건 영문 버전입니다).
 
 ## Contributing (기여하기)
 

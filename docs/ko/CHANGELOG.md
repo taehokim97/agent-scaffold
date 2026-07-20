@@ -13,6 +13,9 @@
 
 - 스캐폴드 레이아웃에 `.claude/hooks/` 추가 (현재는 비어 있음 — 훅 스크립트는
   `.claude/settings.json`을 통해 별도로 등록됩니다).
+- `reproducible-debugging` 스킬 추가: 템플릿의 첫 번째 실제 스킬로, 버그를
+  고치기 전에 재현 → 원인 → 수정 → 검증 루프를 강제합니다. 출처는 README
+  Credits 참고.
 
 ## [0.1.0] - 2026-07-16
 
