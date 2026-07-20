@@ -37,12 +37,21 @@ def test_does_not_copy_readme(tmp_path: Path) -> None:
         assert list((tmp_path / rel).iterdir()) == []
 
 
-def test_ships_reproducible_debugging_skill(tmp_path: Path) -> None:
+SHIPPED_SKILLS = [
+    "reproducible-debugging",
+    "spec-driven-development",
+    "release-versioning",
+    "research-brief",
+]
+
+
+def test_ships_expected_skills(tmp_path: Path) -> None:
     main([str(tmp_path)])
-    skill = tmp_path / ".claude/skills/reproducible-debugging/SKILL.md"
-    assert skill.is_file()
-    assert "reproducible-debugging" in skill.read_text()
-    # The category's format-doc README.md must not be copied alongside it.
+    for name in SHIPPED_SKILLS:
+        skill = tmp_path / f".claude/skills/{name}/SKILL.md"
+        assert skill.is_file()
+        assert name in skill.read_text()
+    # The category's format-doc README.md must not be copied alongside them.
     assert not (tmp_path / ".claude/skills/README.md").exists()
 
 

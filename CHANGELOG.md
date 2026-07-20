@@ -16,6 +16,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `reproducible-debugging` skill: the template's first concrete skill,
   enforcing a reproduce → root-cause → fix → verify loop before any bug
   fix. See README Credits for sources.
+- `spec-driven-development` skill: maintains a `specs/<slug>/` folder
+  (background, spec, plan, tasks, findings, resumption log) for
+  non-trivial feature work.
+- `release-versioning` skill: classifies a change against Semantic
+  Versioning and drafts the CHANGELOG entry.
+- `research-brief` skill: structures an open-ended research question
+  into a scoped brief with sources and a stop condition before handing
+  it off to a long or unattended session.
 
 ## [0.1.0] - 2026-07-16
 
