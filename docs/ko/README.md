@@ -90,6 +90,14 @@ Credits 참고).
   썼습니다. 진행 중인 `specs/<slug>/progress.md`와 아직 안 읽은
   `research/<slug>/findings.md`를 세션 시작 시 알려주며, 보여줄 게 없으면
   조용합니다.
+- **`second-opinion`** 서브에이전트 —
+  [mattpocock/skills](https://github.com/mattpocock/skills)의 2축 병렬
+  code-review와 [affaan-m/ECC](https://github.com/affaan-m/ECC)의
+  confidence 필터형 "Pre-Report Gate"(낮은 확신 발견은 버리고, 0건도
+  유효한 결과)에서 영감을 받았습니다. 처음부터 다시 썼습니다. 완전히
+  확신하지 못하는 영역에 회의적인 시선을 주기 위해 격리된 컨텍스트에서
+  실행되며 — 리뷰만 하고 직접 수정하지 않습니다. 한글 번역:
+  [`docs/ko/agents/second-opinion.md`](agents/second-opinion.md).
 
 ## Contributing (기여하기)
 

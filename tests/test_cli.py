@@ -19,7 +19,6 @@ EXPECTED_CATEGORY_DIRS = [
 EXPECTED_EMPTY_DIRS = [
     ".claude/commands",
     ".claude/rules",
-    ".claude/agents",
 ]
 
 
@@ -72,6 +71,15 @@ def test_ships_expected_hooks_and_settings(tmp_path: Path) -> None:
         assert hook.stat().st_mode & stat.S_IXUSR
     # The category's format-doc README.md must not be copied alongside them.
     assert not (tmp_path / ".claude/hooks/README.md").exists()
+
+
+def test_ships_second_opinion_subagent(tmp_path: Path) -> None:
+    main([str(tmp_path)])
+    agent = tmp_path / ".claude/agents/second-opinion.md"
+    assert agent.is_file()
+    assert "second-opinion" in agent.read_text()
+    # The category's format-doc README.md must not be copied alongside it.
+    assert not (tmp_path / ".claude/agents/README.md").exists()
 
 
 def test_skips_existing_without_force(

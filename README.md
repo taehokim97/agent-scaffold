@@ -94,6 +94,14 @@ and hooks — this scaffold just automates setting them up.
   Rewritten from scratch, not copied. Surfaces in-progress
   `specs/<slug>/progress.md` and unread `research/<slug>/findings.md`
   files at the start of a session; silent when there's nothing to show.
+- **`second-opinion`** subagent — inspired by the two-axis parallel
+  code-review in [mattpocock/skills](https://github.com/mattpocock/skills)
+  and the confidence-filtered "Pre-Report Gate" in
+  [affaan-m/ECC](https://github.com/affaan-m/ECC) (drop low-confidence
+  findings; zero findings is a valid result). Rewritten from scratch, not
+  copied. Runs in an isolated context to give a skeptical read on work
+  outside full confidence — reviews only, never edits. Korean
+  translation: [`docs/ko/agents/second-opinion.md`](docs/ko/agents/second-opinion.md).
 
 ## Contributing
 
