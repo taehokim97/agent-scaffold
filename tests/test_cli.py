@@ -81,9 +81,9 @@ def test_ships_second_opinion_subagent(tmp_path: Path) -> None:
     assert not (tmp_path / ".claude/agents/README.md").exists()
 
 
-def test_ships_bootstrap_command(tmp_path: Path) -> None:
+def test_ships_thk_bootstrap_command(tmp_path: Path) -> None:
     main([str(tmp_path)])
-    command = tmp_path / ".claude/commands/bootstrap.md"
+    command = tmp_path / ".claude/commands/thk-bootstrap.md"
     assert command.is_file()
     assert "spec-driven-development" in command.read_text()
     # The category's format-doc README.md must not be copied alongside it.
