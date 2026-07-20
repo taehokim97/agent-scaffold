@@ -1,0 +1,26 @@
+# Tasks: bootstrap-command
+
+- [x] Create feature branch `feat/bootstrap-command`
+- [x] Write `src/agent_scaffold/source-structure/common/.claude/commands/bootstrap.md`
+  - [x] Frontmatter: `description`
+  - [x] Purpose statement
+  - [x] Explore-before-ask step (manifests, lint/format config)
+  - [x] Overwrite guard (check existing `CLAUDE.md` content before writing)
+  - [x] Q1 project identity
+  - [x] Q2 build & test confirmation
+  - [x] Q3 code style confirmation
+  - [x] Q4 project scale
+  - [x] Q5 branch strategy (2 tiers, scale-suggested default)
+  - [x] Q6 commit convention (Conventional Commits default)
+  - [x] Q7 notes for agents
+  - [x] Q8 initial goal
+  - [x] Write-back to `CLAUDE.md` (4 existing sections + new Git Workflow)
+  - [x] Handoff to spec-driven-development for `README.md` + `spec.md` only
+- [x] Copy to `.claude/commands/bootstrap.md` (dogfood)
+- [x] Write `docs/ko/commands/bootstrap.md` with translation-note header
+- [x] Add `CHANGELOG.md` `[Unreleased]` / `Added` entry
+- [x] Add `bootstrap.md` to `EXPECTED_WHEEL_MEMBERS` in `tests/test_packaging.py`
+- [x] `uv run pytest` passes
+- [x] `uv run ruff check .` passes
+- [x] Self-review against `spec.md` Done-means checklist
+- [x] Update `findings.md` / `progress.md`
