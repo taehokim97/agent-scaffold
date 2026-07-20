@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import stat
 from pathlib import Path
 
 import pytest
@@ -19,7 +20,6 @@ EXPECTED_EMPTY_DIRS = [
     ".claude/commands",
     ".claude/rules",
     ".claude/agents",
-    ".claude/hooks",
 ]
 
 
@@ -53,6 +53,25 @@ def test_ships_expected_skills(tmp_path: Path) -> None:
         assert name in skill.read_text()
     # The category's format-doc README.md must not be copied alongside them.
     assert not (tmp_path / ".claude/skills/README.md").exists()
+
+
+SHIPPED_HOOKS = ["auto-format.sh", "session-brief.sh"]
+
+
+def test_ships_expected_hooks_and_settings(tmp_path: Path) -> None:
+    main([str(tmp_path)])
+    settings = tmp_path / ".claude/settings.json"
+    assert settings.is_file()
+    assert "auto-format.sh" in settings.read_text()
+    assert "session-brief.sh" in settings.read_text()
+    for name in SHIPPED_HOOKS:
+        hook = tmp_path / f".claude/hooks/{name}"
+        assert hook.is_file()
+        # settings.json invokes hooks by path, so they must be executable
+        # regardless of how the package was built/installed.
+        assert hook.stat().st_mode & stat.S_IXUSR
+    # The category's format-doc README.md must not be copied alongside them.
+    assert not (tmp_path / ".claude/hooks/README.md").exists()
 
 
 def test_skips_existing_without_force(

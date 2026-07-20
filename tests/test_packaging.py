@@ -18,6 +18,9 @@ EXPECTED_WHEEL_MEMBERS = [
     "agent_scaffold/source-structure/common/.claude/rules/README.md",
     "agent_scaffold/source-structure/common/.claude/agents/README.md",
     "agent_scaffold/source-structure/common/.claude/hooks/README.md",
+    "agent_scaffold/source-structure/common/.claude/hooks/auto-format.sh",
+    "agent_scaffold/source-structure/common/.claude/hooks/session-brief.sh",
+    "agent_scaffold/source-structure/common/.claude/settings.json",
 ]
 
 

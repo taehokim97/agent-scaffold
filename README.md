@@ -82,6 +82,18 @@ and hooks — this scaffold just automates setting them up.
   unattended, permission-bypassing automation pattern found in some
   research-skill repos surveyed alongside these. Korean translation:
   [`docs/ko/skills/research-brief/`](docs/ko/skills/research-brief/SKILL.md).
+- **`auto-format`** hook (`PostToolUse`) — inspired by the format-code.js
+  auto-formatting hook in
+  [karanb192/claude-code-hooks](https://github.com/karanb192/claude-code-hooks).
+  Rewritten from scratch, not copied. Best-effort: detects a formatter
+  already configured in the project (ruff, prettier, rustfmt, gofmt) and
+  runs it on the file just edited; silently no-ops otherwise.
+- **`session-brief`** hook (`SessionStart`) — inspired by the
+  SessionStart config-check banner in
+  [mvanhorn/last30days-skill](https://github.com/mvanhorn/last30days-skill).
+  Rewritten from scratch, not copied. Surfaces in-progress
+  `specs/<slug>/progress.md` and unread `research/<slug>/findings.md`
+  files at the start of a session; silent when there's nothing to show.
 
 ## Contributing
 
