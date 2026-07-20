@@ -61,6 +61,27 @@ and hooks — this scaffold just automates setting them up.
   Rewritten from scratch, not copied. A Korean translation lives at
   [`docs/ko/skills/reproducible-debugging/`](docs/ko/skills/reproducible-debugging/SKILL.md)
   (reference only — the CLI ships the English version above).
+- **`spec-driven-development`** skill — inspired by the resumption ledger
+  in [obra/superpowers](https://github.com/obra/superpowers)'s
+  `subagent-driven-development` and its `writing-plans` skill, and the
+  `grill-with-docs` → `to-spec` interview chain in
+  [mattpocock/skills](https://github.com/mattpocock/skills). Rewritten
+  from scratch, not copied. Korean translation:
+  [`docs/ko/skills/spec-driven-development/`](docs/ko/skills/spec-driven-development/SKILL.md).
+- **`release-versioning`** skill — provided by: user. Operationalizes
+  this project's own [CONTRIBUTING.md](CONTRIBUTING.md) versioning
+  policy as a reusable skill, not adapted from an external repo. Korean
+  translation:
+  [`docs/ko/skills/release-versioning/`](docs/ko/skills/release-versioning/SKILL.md).
+- **`research-brief`** skill — inspired by the `to_human/` progress-report
+  convention in
+  [Orchestra-Research/AI-Research-SKILLs](https://github.com/Orchestra-Research/AI-Research-SKILLs)
+  and the protocol-lock discipline in
+  [wanshuiyin/ARIS](https://github.com/wanshuiyin/Auto-claude-code-research-in-sleep).
+  Rewritten from scratch, not copied — and deliberately excludes the
+  unattended, permission-bypassing automation pattern found in some
+  research-skill repos surveyed alongside these. Korean translation:
+  [`docs/ko/skills/research-brief/`](docs/ko/skills/research-brief/SKILL.md).
 
 ## Contributing
 

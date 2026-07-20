@@ -59,6 +59,25 @@ Credits 참고).
   처음부터 다시 썼습니다. 한글 번역은
   [`docs/ko/skills/reproducible-debugging/`](skills/reproducible-debugging/SKILL.md)에
   있습니다(참고용 — CLI가 실제로 설치하는 건 영문 버전입니다).
+- **`spec-driven-development`** 스킬 —
+  [obra/superpowers](https://github.com/obra/superpowers)의
+  `subagent-driven-development`가 쓰는 재개 원장과 `writing-plans` 스킬,
+  그리고 [mattpocock/skills](https://github.com/mattpocock/skills)의
+  `grill-with-docs → to-spec` 인터뷰 체인에서 영감을 받았습니다. 처음부터
+  다시 썼습니다. 한글 번역:
+  [`docs/ko/skills/spec-driven-development/`](skills/spec-driven-development/SKILL.md).
+- **`release-versioning`** 스킬 — 제공: 사용자. 외부 저장소를 각색한 게
+  아니라 이 프로젝트 자체의 [CONTRIBUTING.md](CONTRIBUTING.md) 버저닝
+  정책을 재사용 가능한 스킬로 옮긴 것입니다. 한글 번역:
+  [`docs/ko/skills/release-versioning/`](skills/release-versioning/SKILL.md).
+- **`research-brief`** 스킬 —
+  [Orchestra-Research/AI-Research-SKILLs](https://github.com/Orchestra-Research/AI-Research-SKILLs)의
+  `to_human/` 진행 리포트 관행과
+  [wanshuiyin/ARIS](https://github.com/wanshuiyin/Auto-claude-code-research-in-sleep)의
+  protocol-lock 원칙에서 영감을 받았습니다. 처음부터 다시 썼고 — 함께
+  조사했던 다른 리서치 스킬 저장소에서 봤던, 권한을 우회하는 무인 자동화
+  패턴은 의도적으로 배제했습니다. 한글 번역:
+  [`docs/ko/skills/research-brief/`](skills/research-brief/SKILL.md).
 
 ## Contributing (기여하기)
 
