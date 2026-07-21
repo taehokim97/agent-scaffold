@@ -81,13 +81,34 @@ def test_ships_second_opinion_subagent(tmp_path: Path) -> None:
     assert not (tmp_path / ".claude/agents/README.md").exists()
 
 
-def test_ships_bootstrap_command(tmp_path: Path) -> None:
+def test_ships_thk_bootstrap_command(tmp_path: Path) -> None:
     main([str(tmp_path)])
-    command = tmp_path / ".claude/commands/bootstrap.md"
+    command = tmp_path / ".claude/commands/thk-bootstrap.md"
     assert command.is_file()
     assert "spec-driven-development" in command.read_text()
     # The category's format-doc README.md must not be copied alongside it.
     assert not (tmp_path / ".claude/commands/README.md").exists()
+
+
+def test_ships_thk_spec_command(tmp_path: Path) -> None:
+    main([str(tmp_path)])
+    command = tmp_path / ".claude/commands/thk-spec.md"
+    assert command.is_file()
+    assert "spec-driven-development" in command.read_text()
+
+
+def test_ships_thk_ship_command(tmp_path: Path) -> None:
+    main([str(tmp_path)])
+    command = tmp_path / ".claude/commands/thk-ship.md"
+    assert command.is_file()
+    assert "release-versioning" in command.read_text()
+
+
+def test_ships_thk_research_command(tmp_path: Path) -> None:
+    main([str(tmp_path)])
+    command = tmp_path / ".claude/commands/thk-research.md"
+    assert command.is_file()
+    assert "research-brief" in command.read_text()
 
 
 def test_skips_existing_without_force(

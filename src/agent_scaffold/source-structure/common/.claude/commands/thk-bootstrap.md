@@ -2,7 +2,7 @@
 description: Interview to bootstrap a freshly scaffolded project — fills in CLAUDE.md (overview, build/test, code style, and a new Git Workflow section for branch/commit conventions) and hands off into spec-driven-development for the first goal.
 ---
 
-# /bootstrap
+# /thk-bootstrap
 
 Run this once, right after scaffolding a project with `agent-scaffold`
 (or any time `CLAUDE.md` is still mostly TODOs). It turns the blank

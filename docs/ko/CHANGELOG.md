@@ -29,10 +29,15 @@
 - `second-opinion` 서브에이전트 추가: 완전히 확신하지 못하는 작업을 위한
   격리된 컨텍스트의 리뷰 전용 리뷰어로, 확신도로 필터링된 발견을
   보고합니다(0건도 유효한 결과).
-- `bootstrap` 커맨드 추가: 템플릿의 첫 번째 커맨드로, 인터뷰를 통해
+- `thk-bootstrap` 커맨드 추가: 템플릿의 첫 번째 커맨드로, 인터뷰를 통해
   `CLAUDE.md`(개요, 빌드/테스트, 코드 스타일, 그리고 브랜치/커밋
   컨벤션을 위한 새 Git Workflow 섹션)를 채우고 프로젝트의 첫 목표를
   `spec-driven-development` 스킬로 인계합니다.
+- `thk-spec`, `thk-ship`, `thk-research` 커맨드 추가: `spec-driven-development`,
+  `release-versioning`, `research-brief` 스킬로 가는 명시적인 진입점으로,
+  스킬 자체의 description 자동 트리거를 믿기 어려울 때 사용합니다. 각
+  커맨드는 기반 스킬이 다루지 않는 단계를 하나씩 추가합니다 — 자세한
+  내용은 `specs/thk-commands/README.md` 참고.
 
 ## [0.1.0] - 2026-07-16
 

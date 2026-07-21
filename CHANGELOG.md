@@ -29,10 +29,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `second-opinion` subagent: an isolated-context, review-only reviewer
   for work outside full confidence, with confidence-filtered findings
   (zero findings is a valid result).
-- `bootstrap` command: the template's first command, an interview that
+- `thk-bootstrap` command: the template's first command, an interview that
   fills in `CLAUDE.md` (overview, build/test, code style, and a new Git
   Workflow section for branch/commit conventions) and hands off into the
   `spec-driven-development` skill for the project's first goal.
+- `thk-spec`, `thk-ship`, `thk-research` commands: explicit entry points
+  into the `spec-driven-development`, `release-versioning`, and
+  `research-brief` skills, for when relying on the skill's own
+  description to auto-trigger isn't reliable enough. Each adds a step
+  the underlying skill doesn't cover on its own — see
+  `specs/thk-commands/README.md`.
 
 ## [0.1.0] - 2026-07-16
 

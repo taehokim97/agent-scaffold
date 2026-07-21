@@ -1,11 +1,11 @@
 > 이 파일은 번역본입니다. 실제로 배포되는 원본:
-> [source-structure의 영문 버전](../../../src/agent_scaffold/source-structure/common/.claude/commands/bootstrap.md)
+> [source-structure의 영문 버전](../../../src/agent_scaffold/source-structure/common/.claude/commands/thk-bootstrap.md)
 
 ---
 description: Interview to bootstrap a freshly scaffolded project — fills in CLAUDE.md (overview, build/test, code style, and a new Git Workflow section for branch/commit conventions) and hands off into spec-driven-development for the first goal.
 ---
 
-# /bootstrap
+# /thk-bootstrap
 
 `agent-scaffold`로 프로젝트를 스캐폴딩한 직후(또는 `CLAUDE.md`가 아직
 대부분 TODO 상태일 때 언제든) 한 번 실행한다. 빈 스켈레톤을 프로젝트의
